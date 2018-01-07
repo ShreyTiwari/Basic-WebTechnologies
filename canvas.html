@@ -1,0 +1,43 @@
+<html>
+    <head>
+        <title>Canvas.</title>
+        <style>
+            h1.head
+            {
+                background-color: burlywood;
+                color: black;
+            }
+            body
+            {
+                background-image: url(img4.jpg);
+            }
+        </style>
+        <script>
+            
+            function fun(e)
+            {
+                var a = e.target;
+                if(e.ctrlKey)
+                a.style.backgroundColor = "aqua";
+                else
+                a.style.backgroundColor = "red";
+            }
+        </script>
+    </head>
+    <body>
+        <script>
+            
+            document.write("<center><h1 class=\"head\">WELCOME.</h1></center><br /><br />");
+            document.write("<center><table border=border cellspacing =0>");
+            for(var i = 0; i<70; i++)
+            {
+                document.write("<tr width=10 height = 10>");
+                for(var j=0; j<70; j++)
+                {
+                    document.write("<th style=\"width: 5px; color : transparent; background-color: white\" onclick=\"fun1(event)\" onmouseover=\"fun(event)\" ></th>");
+                }
+                document.write("</tr>")
+            }
+        </script>
+    </body>
+</html>

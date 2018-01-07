@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+    <title>Game</title>
+    
+    <head>
+    
+    <style>
+    	table.Xyz{
+    	border: 1px solid brown;
+    	color : rgb(201, 27, 27);     	
+    	}
+    </style>
+    
+    
+    
+    
+    <script>
+
+    	document.writeln(" <head><h1><b><center><font style=\"color:crimson\"><marquee dir=\"ltr\">Guess The Magic Number!!!</marquee></font><center></b></h1>");
+    	
+    	document.writeln("<style>body{background-image: url(\"img4.jpg\");background-repeat: round};</style>");
+    	document.writeln("<p>");
+    	document.writeln("<br/><h2>This is a game of guessing the magic number:</h2>The user will be given ten trials to guess the number. If the entered value is not equal to the magic number the user will be informed.<br/>Note that three consequtive non numeric inputs will terminate the game.</p>");
+    	document.writeln("<center><h2><i><span style=\"color:brown\">ALL THE BEST !!!</span></i></h2></center><BR/>");
+    	
+    	var a = parseInt(Math.random()*100);
+	
+	document.writeln("<center><table border=1 class=\"Xyz\">");
+	document.writeln("<tr><th width=260px style=\"background-color: lightgrey\"><i>Number Guessed</i></th><th width=260px style=\"background-color: lightgrey\"><i>Result</i></th></tr>");
+	
+	var guess;
+	var ch =0;
+	var win = 0;
+	for(var i=0; i<10; ++i)
+	{
+		guess = parseInt(prompt("Enter a number !"));
+		if(guess > a)
+		{
+			document.writeln("<tr><th>"+guess+"</th><th style=\"background-color: red\"><i>Greater Than MAGIC NO.</i></th></tr>");
+			alert("Greater Than The Magic Number.");
+		}
+		
+		else if(guess<a)
+		{
+			document.writeln("<tr><th>"+guess+"</th><th style=\"background-color: yellow\"><i>Lesser Than MAGIC NO.</i></th></tr>");
+			alert("Lesser Than The Magic Number.");
+		}
+		
+		else if(guess == a)
+		{
+			document.writeln("<tr><th>"+guess+"</th><th style=\"background-color: lightgreen\"><i>You Win !!!</i></th></tr>");
+			win = 1;
+			break;
+		}
+		
+		if(isNaN(guess))
+		{
+			ch=ch+1;
+		}
+		else
+		{ch = 0;}
+		
+		if(ch == 3)
+		{
+			alert("You Have Exceeded The Limit Of Invalid Inputs.");
+			break;
+		}
+	}
+	document.writeln("</table><br/>");
+	if(win == 1)
+		document.writeln("<h2><i>YOU WON !!!</i></h2>");
+	else
+	{
+		document.writeln("<h2><i>YOU LOST !!!</i></h2>");
+		
+		}
+	document.writeln("<big>The magic number was : </big>"+a);
+	document.writeln("<br/><br/><h1>Thank You For Joining Us.</h1></center>");
+  
+    </script>
+    
+    </head>
+</html>

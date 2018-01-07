@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+    <title>
+        Factorial Of A Number
+    </title>
+    
+    <head>
+        <script>
+            var a = parseInt(prompt("Enter a number."));
+            var f = fact(a);
+            document.writeln("Factorial is : "+f);
+            
+            function fact(a)
+            {
+                if(a == 1)
+                    {
+                    return a;
+                    }
+                else
+                    {
+                    return(a*fact(a-1));
+                    }
+            }
+        </script>
+    </head>
+</html>

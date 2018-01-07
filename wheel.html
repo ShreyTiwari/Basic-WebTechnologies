@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+    <title>Welcome.</title>
+    <body>
+        <canvas id="canvas" width="1500px" height="360px"></canvas><br />
+        <input type="button" value="Start" onclick="rotate()"><br />
+        <input type="button" value="Stop" onclick="stop()">
+        <script>
+            var c = document.getElementById("canvas");
+            c=c.getContext("2d");
+            var x = c.createLinearGradient(0,0,1000,360);
+            x.addColorStop(0, "red");
+            x.addColorStop(1, "white");
+            c.fillStyle = x;
+            c.fillRect(0, 0, 1000, 360);
+            
+            var interval;
+            x = 50;
+            y = 300;
+
+            angle = 0;
+            function rotate()
+            {
+                interval = setInterval(show, 1);
+            }
+            function stop()
+            {
+                clearInterval(interval);
+            }
+
+            function show()
+            {
+                if(x>940)
+                {
+                    stop();
+                }
+                c.fillStyle = x;
+                c.fillRect(0, 0, 1000, 360);
+                c.moveTo(0, 350);
+                c.lineTo(1000,350);
+                c.stroke();
+                
+                c.beginPath();
+                c.arc(x,y, 50,2*Math.PI,false);
+                
+                c.stroke();
+
+                c.moveTo(x - 50*Math.cos(angle), y - 50*Math.sin(angle));
+                c.lineTo(x + 50*Math.cos(angle), y + 50*Math.sin(angle));
+                c.stroke();
+
+                c.moveTo(x - 50*Math.cos(angle+Math.PI/2), y - 50*Math.sin(angle+Math.PI/2));
+                c.lineTo(x + 50*Math.cos(angle+Math.PI/2), y + 50*Math.sin(angle+Math.PI/2));
+                c.stroke();
+
+                angle = angle + Math.PI/1200;
+
+                x = x+Math.PI*50/1000;   
+            }
+
+        </script>
+
+    </body>
+</html>

@@ -1,0 +1,28 @@
+<html>
+    <title>Testing</title>
+    <head>
+        <script>    
+            var a = prompt("Enter a color."),b = prompt("Enter a color.");
+            if(a=="white" || b=="white")
+                document.writeln("<br/><br/><center><table border=1>");
+            else
+                document.writeln("<br/><br/><center><table border=0>");
+            for(var j=0; j<8; j++)
+                {
+                    document.writeln("<tr height=40px>");
+                    for(var i=0; i<8; i++)
+                        {
+                                if((i+j)%2 == 0)
+                                    document.writeln("<th width=70px style=\"background-color : "+a+"\"></th>");
+                                else
+                                    {
+                                        document.write("<th width=70px style=\"background-color :"+b+"\"></th>");
+                                    }
+                    
+                        }
+                    document.writeln("</tr>");
+                }
+            document.writeln("</table></center>");
+        </script>
+    </head>
+</html>

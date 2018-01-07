@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+
+<title>Generating Waves</title>
+
+<head>
+	<h1 style="float:right; margin-right:200px">Welcome...</h1><br />
+	<style>
+		body{ background-image : url("../Shrey/img4.jpg"); }
+	</style>
+</head>
+
+<body>
+	<canvas id = "canvas" width = 500px height = 320px></canvas><br />
+	<input type="button" value="Start" onclick="display();"><br />
+	<input type="button" value="Stop" onclick="stop();"><br />
+	
+	<center>
+	<p>
+		<br />
+		This webpage generates triangular waves as the requirement of the user.<br />
+		Enter the amplitude of the wave as the height.<br />
+		Enter the pitch as width.<br />
+		Press start to generate wave and stop to terminate generation.
+	</p>
+	</center>
+	
+	<script>
+		var canvas = document.getElementById("canvas");
+		canvas = canvas.getContext("2d");
+		
+		canvas.fillStyle = "yellow";
+		canvas.fillRect(0, 0, 500, 320);
+		
+		canvas.beginPath();
+		
+		canvas.moveTo(10, 10);
+		canvas.lineTo( 10, 310 );
+		canvas.strokeStyle = "black";
+		canvas.stroke();
+		
+		canvas.moveTo(10, 160);
+		canvas.lineTo( 410, 160 );
+		canvas.stroke();
+		
+		canvas.closePath();
+		a = parseInt(prompt("Enter the height of the wave.....\n"));
+		w = parseInt(prompt("Enter the width of the wave.....\n"));
+		
+		x = 10;
+		y = 160;
+		
+		var interval;
+		
+		var up = 1;
+		
+		function display()
+		{
+			interval = setInterval( print, 10);
+		}
+		
+		function stop()
+		{
+			clearInterval(interval);
+		}
+		
+		function print()
+		{
+			if(x > 400){ stop(); }
+			if(up == 1)
+			{
+			
+				if(y > 160 - a)
+				{
+					canvas.beginPath();
+					canvas.strokeStyle = "red";
+					canvas.moveTo(x,y);
+					x = x + w/10;
+					y = y-a/10;
+					canvas.lineTo(x, y);
+					canvas.stroke();
+					canvas.closePath();
+				}
+				else
+				{
+					up = -1;
+				}
+			}
+			else
+			{
+				if(y < 160 + a)
+				{
+					canvas.beginPath();
+					canvas.strokeStyle = "blue";
+					canvas.moveTo(x,y);
+					x = x + w/10;
+					y = y+a/10;
+					canvas.lineTo(x, y);
+					canvas.stroke();
+					canvas.closePath();
+				}
+				else
+				{
+					up = 1;
+				}
+			}
+		}
+		
+	</script>
+</body>
+
+</html>

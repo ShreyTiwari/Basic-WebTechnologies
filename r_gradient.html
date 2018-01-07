@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+    <title>Welcome.</title>
+    <body>
+        <canvas id="canvas" width="1000px" height="350px"></canvas>
+
+        <script>
+            var c = document.getElementById("canvas");
+            c=c.getContext("2d");
+            var x = c.createRadialGradient(50 ,70 ,120,0, 0, 550);
+            x.addColorStop(0, "aqua");
+            x.addColorStop(1, "purple");
+            c.fillStyle = x;
+            c.fillRect(0, 0, 500, 360);
+            
+        </script>
+
+    </body>
+</html>

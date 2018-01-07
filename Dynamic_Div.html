@@ -1,0 +1,54 @@
+<html>
+    <head>
+        <title>Dynamically Adding Division</title>
+        <h1>
+            <center>Click Anywhere On The Screen !</center>
+        </h1>
+        
+        <style>
+            body
+            {
+                position: absolute;
+                background-color: darkseagreen;
+
+                width: 100%;
+                height: 100%;
+            }
+            h1
+            {
+                background-color:dimgrey;
+                color: white;
+            }
+            div.abc
+            {
+                position: absolute;
+                width: 20px;
+                height: 20px;
+                background-color: yellow;
+            }
+        </style>
+        
+        <script>
+            function dd(e)
+            {
+                var a = document.getElementById("body");
+                a.style.backgroundColor = "mediumslateblue";
+                a.onclick=show;
+
+            }
+            function show(e)
+            {
+                var b = document.createElement("div");
+                b.setAttribute("class","abc"); 
+                var x=e.screenX;
+                var y=e.screenY;
+                b.style.top = eval(y - 104);
+                b.style.left = eval(x - 60);
+                document.body.appendChild(b);
+            }
+        </script>
+        
+    </head>
+    
+    <body id="body" onclick="dd(event)"></body>
+</html>
